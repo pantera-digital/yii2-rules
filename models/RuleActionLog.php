@@ -48,7 +48,6 @@ class RuleActionLog extends ActiveRecord
             [['message'], 'string'],
             [['created_at'], 'safe'],
             [['action_id'], 'exist', 'skipOnError' => true, 'targetClass' => RuleAction::className(), 'targetAttribute' => ['action_id' => 'id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->user->identity->className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
