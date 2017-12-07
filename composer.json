@@ -5,8 +5,16 @@
     {
       "name": "webmayak",
       "email": "web-mayak@mail.ru"
+    },
+    {
+      "name": "sopranowest",
+      "email": "sopranowest@gmail.com"
     }
   ],
+  "require": {
+    "himiklab/yii2-sortable-grid-view-widget": "*",
+    "pantera-digital/yii2-grid": "*"
+  },
   "autoload": {
     "psr-4": {
       "pantera\\rules\\": ""
