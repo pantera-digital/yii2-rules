@@ -21,7 +21,7 @@ use yii\db\ActiveRecord;
  * @property Rule $rule
  * @property RuleActionLog[] $ruleActionLogs
  */
-class RuleActions extends ActiveRecord
+class RuleAction extends ActiveRecord
 {
     public function behaviors()
     {

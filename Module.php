@@ -7,8 +7,8 @@ use yii\helpers\StringHelper;
 
 class Module extends \yii\base\Module
 {
-    public $classes;
-    public $classesList;
+    public $classes = [];
+    public $classesList = [];
 
     public function init()
     {
@@ -18,7 +18,7 @@ class Module extends \yii\base\Module
             $item = StringHelper::basename($item);
         });
         $this->classesList = array_combine($classesListKeys, $classesListValues);
-        EventsListener::init();
+        EventListener::init();
         parent::init();
     }
 

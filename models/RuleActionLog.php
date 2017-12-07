@@ -34,7 +34,7 @@ class RuleActionLog extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%rule_action_log}}';
+        return '{{%system_rule_action_log}}';
     }
 
     /**
