@@ -3,7 +3,7 @@
 use pantera\rules\admin\Module;
 use pantera\rules\models\RuleAction;
 use himiklab\sortablegrid\SortableGridView;
-use kartik\widgets\DepDrop;
+use kartik\depdrop\DepDrop;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
