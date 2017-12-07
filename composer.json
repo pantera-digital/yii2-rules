@@ -12,8 +12,9 @@
     }
   ],
   "require": {
+    "pantera-digital/yii2-grid": "*",
     "himiklab/yii2-sortable-grid-view-widget": "*",
-    "pantera-digital/yii2-grid": "*"
+    "kartik-v/yii2-widget-depdrop": "@dev"
   },
   "autoload": {
     "psr-4": {
