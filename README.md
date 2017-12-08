@@ -10,3 +10,8 @@ composer require pantera-digital/yii2-rules "@dev"
 ```
 "pantera-digital/yii2-rules": "@dev"
 ```
+
+## Миграции
+```
+php yii migrate/up --migrationPath=@pantera/rules/migrations
+```
