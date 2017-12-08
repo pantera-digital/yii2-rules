@@ -1,6 +1,6 @@
 const rulesActionModal = $('#rules-actions-modal');
 const initAce = function () {
-    var textarea = $('#rulesactions-php_code');
+    var textarea = $('#ruleaction-php_code');
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/dracula");
     editor.getSession().setMode({path: "ace/mode/php", inline: true});
