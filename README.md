@@ -10,6 +10,10 @@ composer require pantera-digital/yii2-rules "@dev"
 ```
 "pantera-digital/yii2-rules": "@dev"
 ```
+и выполните:
+```
+composer update
+```
 
 ## Миграции
 ```
