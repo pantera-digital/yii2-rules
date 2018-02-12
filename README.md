@@ -18,7 +18,7 @@ php yii migrate/up --migrationPath=@pantera/rules/migrations
 
 ## Подключение
 
-Добавить в ```frontend/config/config.php```
+Добавить в ```frontend/config/main.php```
 ```
 ...
 
@@ -35,7 +35,7 @@ php yii migrate/up --migrationPath=@pantera/rules/migrations
 ...
 ```
 
-Добавить в ```backend/config/config.php```
+Добавить в ```backend/config/main.php```
 ```
 ...
 
