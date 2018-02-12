@@ -35,7 +35,14 @@ php yii migrate/up --migrationPath=@pantera/rules/migrations
         'class' => 'pantera\rules\Module',
         'classes' => [
             namespace\to\YourClassName::className() => [
-                namespace\to\YourClassName::YOUR_CLASS_EVENT_KEY,
+                namespace\to\YourClassName::YOUR_CLASS1_EVENT_KEY_1,
+                namespace\to\YourClassName::YOUR_CLASS1_EVENT_KEY_2,
+                ...
+            ],
+            namespace\to\YourClassName2::className() => [
+                namespace\to\YourClassName2::YOUR_CLASS2_EVENT_KEY_1,
+                namespace\to\YourClassName2::YOUR_CLASS2_EVENT_KEY_2,
+                ...
             ],
         ],
     ],
@@ -59,4 +66,4 @@ php yii migrate/up --migrationPath=@pantera/rules/migrations
 ```
 
 ## Использование
-В бекенде управление осуществляется по адресу index.php?r=rules/rules
+В бекенде управление осуществляется по адресу index.php?r=rules/rules. Необходимо добавить требуемые вам rule и в них задать actions на события.
