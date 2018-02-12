@@ -29,6 +29,11 @@ php yii migrate/up --migrationPath=@pantera/rules/migrations
 'modules' => [
     'rules' => [
         'class' => 'pantera\rules\Module',
+        'classes' => [
+            namespace\to\YourClassName::className() => [
+                namespace\to\YourClassName::YOUR_CLASS_EVENT_KEY,
+            ],
+        ],
     ],
 ]
 
@@ -42,6 +47,7 @@ php yii migrate/up --migrationPath=@pantera/rules/migrations
 'modules' => [
     'rules' => [
         'class' => 'pantera\rules\admin\Module',
+        'permissions' => ['admin'],
     ],
 ]
 
