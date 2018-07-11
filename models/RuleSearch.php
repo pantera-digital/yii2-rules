@@ -18,7 +18,7 @@ class RuleSearch extends Rule
     {
         return [
             [['id', 'status'], 'integer'],
-            [['model', 'event', 'comment', 'created_at', 'updated_at', 'name'], 'safe'],
+            [['class', 'event', 'comment', 'created_at', 'updated_at', 'name'], 'safe'],
         ];
     }
 
@@ -79,7 +79,7 @@ class RuleSearch extends Rule
             ]);
         }
 
-        $query->andFilterWhere(['like', 'model', $this->model])
+        $query->andFilterWhere(['like', 'class', $this->class])
             ->andFilterWhere(['like', 'event', $this->event])
             ->andFilterWhere(['like', 'comment', $this->comment])
             ->andFilterWhere(['like', 'name', $this->name]);

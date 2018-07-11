@@ -7,13 +7,12 @@ namespace pantera\rules\models;
  *
  * @property integer $id
  * @property string $name
- * @property string $model
+ * @property string $class
  * @property string $event
  * @property integer $status
  * @property string $comment
  * @property string $created_at
  * @property string $updated_at
- * @property string $name
  *
  * @property RuleAction[] $actions
  */
@@ -41,11 +40,11 @@ class Rule extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['model', 'event', 'name'], 'required'],
+            [['class', 'event', 'name'], 'required'],
             [['comment'], 'string'],
             [['status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['model', 'event', 'name'], 'string', 'max' => 255],
+            [['class', 'event', 'name'], 'string', 'max' => 255],
         ];
     }
 
@@ -57,13 +56,12 @@ class Rule extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'model' => 'Model',
+            'class' => 'class',
             'event' => 'Event',
             'status' => 'Status',
             'comment' => 'Comment',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'name' => 'Name',
         ];
     }
 

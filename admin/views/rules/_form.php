@@ -27,7 +27,7 @@ $module = Yii::$app->controller->module;
 
         <?= $form->field($model, 'name')->textInput() ?>
 
-        <?= $form->field($model, 'model')->dropDownList($module->classesList, [
+        <?= $form->field($model, 'class')->dropDownList($module->classesList, [
             'prompt' => '---',
             'id' => 'model',
         ]) ?>
@@ -37,7 +37,7 @@ $module = Yii::$app->controller->module;
                 'id' => 'event',
                 'placeholder' => 'Select...',
             ],
-            'data' => $module->getEventsOfClass($model->model),
+            'data' => $module->getEventsOfClass($model->class),
             'pluginOptions' => [
                 'depends' => ['model'],
                 'url' => Url::to(['get-events'])

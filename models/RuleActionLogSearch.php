@@ -16,7 +16,7 @@ class RuleActionLogSearch extends RuleActionLog
     public function rules()
     {
         return [
-            [['id', 'action_id', 'model_id', 'user_id', 'status'], 'integer'],
+            [['id', 'action_id', 'primary_key', 'user_id', 'status'], 'integer'],
             [['message', 'created_at'], 'safe'],
         ];
     }
@@ -54,7 +54,7 @@ class RuleActionLogSearch extends RuleActionLog
         $query->andFilterWhere([
             'id' => $this->id,
             'action_id' => $this->action_id,
-            'model_id' => $this->model_id,
+            'primary_key' => $this->primary_key,
             'user_id' => $this->user_id,
             'status' => $this->status,
         ]);

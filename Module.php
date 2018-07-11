@@ -29,11 +29,11 @@ class Module extends \yii\base\Module
         return Yii::$app->db->schema->getTableSchema('{{%system_rule}}') !== null;
     }
 
-    public function getEventsOfClass($model)
+    public function getEventsOfClass($class)
     {
         $result = [];
-        if (array_key_exists($model, $this->classes)) {
-            $result = array_combine($this->classes[$model], $this->classes[$model]);
+        if (array_key_exists($class, $this->classes)) {
+            $result = array_combine($this->classes[$class], $this->classes[$class]);
         }
         return $result;
     }

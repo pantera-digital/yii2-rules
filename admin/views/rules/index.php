@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'columns' => [
             'name',
-            'model',
+            'class',
             'event',
             [
                 'attribute' => 'status',

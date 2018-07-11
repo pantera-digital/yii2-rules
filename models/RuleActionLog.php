@@ -10,7 +10,7 @@ use yii\db\ActiveRecord;
  *
  * @property integer $id
  * @property integer $action_id
- * @property integer $model_id
+ * @property integer $primary_key
  * @property integer $user_id
  * @property integer $status
  * @property string $message
@@ -43,8 +43,8 @@ class RuleActionLog extends ActiveRecord
     public function rules()
     {
         return [
-            [['action_id', 'model_id'], 'required'],
-            [['action_id', 'model_id', 'user_id', 'status'], 'integer'],
+            [['action_id'], 'required'],
+            [['action_id', 'primary_key', 'user_id', 'status'], 'integer'],
             [['message'], 'string'],
             [['created_at'], 'safe'],
             [['action_id'], 'exist', 'skipOnError' => true, 'targetClass' => RuleAction::className(), 'targetAttribute' => ['action_id' => 'id']],
@@ -59,7 +59,7 @@ class RuleActionLog extends ActiveRecord
         return [
             'id' => 'ID',
             'action_id' => 'Action ID',
-            'model_id' => 'Model ID',
+            'primary_key' => 'Primary Key',
             'user_id' => 'User ID',
             'status' => 'Status',
             'message' => 'Message',

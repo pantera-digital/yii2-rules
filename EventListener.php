@@ -31,8 +31,9 @@ class EventListener
         }
     }
 
-    public static function bind(RuleAction $action){
-        Event::on($action->rule->model, $action->rule->event, function ($event) use ($action) {
+    public static function bind(RuleAction $action)
+    {
+        Event::on($action->rule->class, $action->rule->event, function ($event) use ($action) {
             $status = 1;
             $stackTrace = null;
             $model = $event->sender;
@@ -50,11 +51,13 @@ class EventListener
         });
     }
 
-    private static function log(RuleAction $action, ActiveRecord $model, $status, $stackTrace)
+    private static function log(RuleAction $action, $model, $status, $stackTrace)
     {
         $log = new RuleActionLog();
         $log->action_id = $action->id;
-        $log->model_id = $model->getPrimaryKey();
+        if ($model instanceof ActiveRecord) {
+            $log->primary_key = $model->getPrimaryKey();
+        }
         $log->status = $status;
         $log->message = $stackTrace;
         if (Yii::$app->has("user")) {
