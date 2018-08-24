@@ -37,4 +37,12 @@ class Module extends \yii\base\Module
         }
         return $result;
     }
+
+    public function getMenuItems()
+    {
+        return [['label' => 'Rules', 'url' => '#', 'items' =>[
+            ['label' => 'Rules', 'url' => ['/rules/rules']],
+            ['label' => 'Rules actions log', 'url' => ['/rules/rules-actions-log']],
+        ]]];
+    }
 }
