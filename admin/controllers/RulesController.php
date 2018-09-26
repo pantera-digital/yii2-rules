@@ -2,11 +2,11 @@
 
 namespace pantera\rules\admin\controllers;
 
+use himiklab\sortablegrid\SortableGridAction;
 use pantera\rules\admin\Module;
 use pantera\rules\models\Rule;
 use pantera\rules\models\RuleAction;
 use pantera\rules\models\RuleSearch;
-use himiklab\sortablegrid\SortableGridAction;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
@@ -19,7 +19,7 @@ use yii\web\NotFoundHttpException;
  */
 class RulesController extends Controller
 {
-    /* @var BackendModule */
+    /* @var Module */
     public $module;
 
     /**
@@ -88,6 +88,7 @@ class RulesController extends Controller
      * Displays a single Rule model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionView($id)
     {
@@ -119,6 +120,7 @@ class RulesController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionUpdate($id)
     {
@@ -176,6 +178,9 @@ class RulesController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {

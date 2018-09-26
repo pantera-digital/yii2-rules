@@ -4,6 +4,7 @@ namespace pantera\rules\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use const SORT_DESC;
 
 /**
  * RuleActionLogSearch represents the model behind the search form about `pantera\rules\models\RuleActionLog`.
@@ -43,6 +44,9 @@ class RuleActionLogSearch extends RuleActionLog
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'defaultOrder' => ['id' => SORT_DESC],
+            ],
         ]);
 
         $this->load($params);
@@ -59,7 +63,7 @@ class RuleActionLogSearch extends RuleActionLog
             'status' => $this->status,
         ]);
 
-        if($this->created_at) {
+        if ($this->created_at) {
             $dates = explode(' - ', $this->created_at);
             $start = date('Y-m-d 00:00:00', strtotime($dates[0]));
             $stop = date('Y-m-d 23:59:59', strtotime($dates[1]));
