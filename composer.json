@@ -14,7 +14,8 @@
   "require": {
     "pantera-digital/yii2-grid": "@dev",
     "himiklab/yii2-sortable-grid-view-widget": "*",
-    "kartik-v/yii2-widget-depdrop": "@dev"
+    "kartik-v/yii2-widget-depdrop": "@dev",
+    "npm-asset/ace-builds": "*"
   },
   "autoload": {
     "psr-4": {
