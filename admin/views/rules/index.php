@@ -3,7 +3,6 @@
 use pantera\rules\models\Rule;
 use yii\grid\GridView;
 use yii\helpers\Html;
-use yii\web\JsExpression;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -36,10 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'status',
                 'format' => 'html',
-                'value' => function ($model) {
-                    /* @var $model Rule */
-                    $class = $model->status ? 'success' : 'danger';
-                    return '<span class="label label-' . $class . '">' . $model->getStatusName()[$model->status] . '</span>';
+                'value' => function (Rule $model) {
+                    return Html::tag('span', $model->getStatusName()[$model->status], [
+                        'class' => 'label label-' . ($model->status ? 'success' : 'danger')
+                    ]);
                 },
                 'filter' => Html::activeDropDownList($searchModel, 'status', $searchModel->getStatusName(), [
                     'prompt' => '---',

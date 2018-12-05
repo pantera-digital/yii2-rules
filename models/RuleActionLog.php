@@ -47,7 +47,13 @@ class RuleActionLog extends ActiveRecord
             [['action_id', 'primary_key', 'user_id', 'status'], 'integer'],
             [['message'], 'string'],
             [['created_at'], 'safe'],
-            [['action_id'], 'exist', 'skipOnError' => true, 'targetClass' => RuleAction::className(), 'targetAttribute' => ['action_id' => 'id']],
+            [
+                ['action_id'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => RuleAction::class,
+                'targetAttribute' => ['action_id' => 'id']
+            ],
         ];
     }
 
@@ -72,7 +78,7 @@ class RuleActionLog extends ActiveRecord
      */
     public function getAction()
     {
-        return $this->hasOne(RuleAction::className(), ['id' => 'action_id']);
+        return $this->hasOne(RuleAction::class, ['id' => 'action_id']);
     }
 
     /**
@@ -80,6 +86,6 @@ class RuleActionLog extends ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(Yii::$app->user->identity->className(), ['id' => 'user_id']);
+        return $this->hasOne(get_class(Yii::$app->user->identity), ['id' => 'user_id']);
     }
 }

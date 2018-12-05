@@ -27,7 +27,7 @@ class RuleAction extends ActiveRecord
     {
         return [
             'sort' => [
-                'class' => SortableGridBehavior::className(),
+                'class' => SortableGridBehavior::class,
                 'sortableAttribute' => 'sort'
             ],
         ];
@@ -60,7 +60,13 @@ class RuleAction extends ActiveRecord
             [['php_code', 'comment'], 'string'],
             [['name'], 'string', 'max' => 255],
             [['created_at', 'updated_at'], 'safe'],
-            [['rule_id'], 'exist', 'skipOnError' => true, 'targetClass' => Rule::className(), 'targetAttribute' => ['rule_id' => 'id']],
+            [
+                ['rule_id'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => Rule::class,
+                'targetAttribute' => ['rule_id' => 'id']
+            ],
         ];
     }
 
@@ -86,7 +92,7 @@ class RuleAction extends ActiveRecord
      */
     public function getRule()
     {
-        return $this->hasOne(Rule::className(), ['id' => 'rule_id']);
+        return $this->hasOne(Rule::class, ['id' => 'rule_id']);
     }
 
     /**
@@ -94,6 +100,6 @@ class RuleAction extends ActiveRecord
      */
     public function getRuleActionLogs()
     {
-        return $this->hasMany(RuleActionLog::className(), ['action_id' => 'id']);
+        return $this->hasMany(RuleActionLog::class, ['action_id' => 'id']);
     }
 }

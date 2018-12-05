@@ -1,7 +1,7 @@
 <?php
 
-use pantera\rules\models\RuleActionLog;
 use pantera\grid\widgets\dateRangePicker\DateRangePicker;
+use pantera\rules\models\RuleActionLog;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\web\JsExpression;
@@ -24,8 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             'action_id',
-            'primary_key',
-            'user_id',
             [
                 'attribute' => 'created_at',
                 'value' => function (RuleActionLog $model) {
@@ -39,20 +37,28 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     'pluginEvents' => [
                         'apply.daterangepicker' => new JsExpression('function(ev, picker){
-                            $(this).val(picker.startDate.format("MM/DD/YYYY") + " - " + picker.endDate.format("MM/DD/YYYY")).trigger("change");
+                            const start = picker.startDate.format("MM/DD/YYYY");
+                            const stop = picker.endDate.format("MM/DD/YYYY")
+                            $(this).val(start + " - " + stop).trigger("change");
                         }'),
                         'cancel.daterangepicker' => new JsExpression('function(ev, picker){
                             $(this).val("").trigger("change");
                         }'),
                     ],
+                    'options' => [
+                        'autocomplete' => 'off',
+                    ],
                 ]),
             ],
+            'primary_key',
+            'user_id',
             [
                 'attribute' => 'status',
                 'format' => 'html',
                 'value' => function (RuleActionLog $model) {
-                    $class = $model->status ? 'success' : 'danger';
-                    return '<span class="label label-' . $class . '">' . $model->getStatusName()[$model->status] . '</span>';
+                    return Html::tag('span', $model->getStatusName()[$model->status], [
+                        'class' => 'label label-' . ($model->status ? 'success' : 'danger')
+                    ]);
                 },
                 'filter' => Html::activeDropDownList($searchModel, 'status', $searchModel->getStatusName(), [
                     'prompt' => '---',

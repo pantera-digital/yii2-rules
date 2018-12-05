@@ -1,9 +1,9 @@
-<?php
+<?php /** @noinspection PhpUnusedParameterInspection */
 
-use pantera\rules\admin\Module;
-use pantera\rules\models\RuleAction;
 use himiklab\sortablegrid\SortableGridView;
 use kartik\depdrop\DepDrop;
+use pantera\rules\admin\Module;
+use pantera\rules\models\RuleAction;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -32,7 +32,7 @@ $module = Yii::$app->controller->module;
             'id' => 'model',
         ]) ?>
 
-        <?= $form->field($model, 'event')->widget(DepDrop::classname(), [
+        <?= $form->field($model, 'event')->widget(DepDrop::class, [
             'options' => [
                 'id' => 'event',
                 'placeholder' => 'Select...',
@@ -48,7 +48,7 @@ $module = Yii::$app->controller->module;
 
         <?= $form->field($model, 'status')->checkbox() ?>
 
-        <?php if ($model->isNewRecord === false): ?>
+        <?php if ($model->isNewRecord === false) : ?>
             <h3>Actions</h3>
             <?php Pjax::begin([
                 'id' => 'rules-actions-pjax-container',
@@ -59,7 +59,7 @@ $module = Yii::$app->controller->module;
                     [
                         'header' => '',
                         'format' => 'raw',
-                        'value' => function (RuleAction $model) {
+                        'value' => function () {
                             return Html::tag('span', '', [
                                 'class' => 'glyphicon glyphicon-sort',
                             ]);
@@ -75,8 +75,9 @@ $module = Yii::$app->controller->module;
                         'attribute' => 'status',
                         'format' => 'html',
                         'value' => function (RuleAction $model) {
-                            $class = $model->status ? 'success' : 'danger';
-                            return '<span class="label label-' . $class . '">' . $model->getStatusName()[$model->status] . '</span>';
+                            return Html::tag('span', $model->getStatusName()[$model->status], [
+                                'class' => 'label label-' . ($model->status ? 'success' : 'danger'),
+                            ]);
                         },
                     ],
                     [
@@ -118,7 +119,7 @@ $module = Yii::$app->controller->module;
         <?php endif; ?>
 
         <div class="form-group">
-            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

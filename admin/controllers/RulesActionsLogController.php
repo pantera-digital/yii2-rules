@@ -26,7 +26,7 @@ class RulesActionsLogController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'allow' => true,
@@ -35,7 +35,7 @@ class RulesActionsLogController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -52,6 +52,7 @@ class RulesActionsLogController extends Controller
         $searchModel = new RuleActionLogSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        /** @noinspection MissedViewInspection */
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -66,6 +67,7 @@ class RulesActionsLogController extends Controller
      */
     public function actionView($id)
     {
+        /** @noinspection MissedViewInspection */
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);

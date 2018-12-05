@@ -29,7 +29,7 @@ class RulesController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'allow' => true,
@@ -38,7 +38,7 @@ class RulesController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -50,8 +50,8 @@ class RulesController extends Controller
     {
         return [
             'sort' => [
-                'class' => SortableGridAction::className(),
-                'modelName' => RuleAction::className(),
+                'class' => SortableGridAction::class,
+                'modelName' => RuleAction::class,
             ],
         ];
     }
@@ -78,6 +78,7 @@ class RulesController extends Controller
         $searchModel = new RuleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        /** @noinspection MissedViewInspection */
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -92,6 +93,7 @@ class RulesController extends Controller
      */
     public function actionView($id)
     {
+        /** @noinspection MissedViewInspection */
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -109,6 +111,7 @@ class RulesController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            /** @noinspection MissedViewInspection */
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -136,6 +139,7 @@ class RulesController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            /** @noinspection MissedViewInspection */
             return $this->render('update', [
                 'model' => $model,
                 'dataProvider' => $dataProvider,
@@ -151,6 +155,7 @@ class RulesController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->asJson(['status' => 'success']);
         }
+        /** @noinspection MissedViewInspection */
         return $this->renderAjax('_form_action', [
             'model' => $model
         ]);
@@ -162,6 +167,7 @@ class RulesController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->asJson(['status' => 'success']);
         }
+        /** @noinspection MissedViewInspection */
         return $this->renderAjax('_form_action', [
             'model' => $model
         ]);

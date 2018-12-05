@@ -2,9 +2,8 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
-/* @var $model pantera\rules\models\Rules */
+/* @var $model pantera\rules\models\Rule */
 
 $this->title = 'Create Rules';
 $this->params['breadcrumbs'][] = ['label' => 'Rules', 'url' => ['index']];

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model pantera\rules\models\Rules */
+/* @var $model pantera\rules\models\Rule */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Rules', 'url' => ['index']];

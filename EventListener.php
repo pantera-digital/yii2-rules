@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: singletonn
- * Date: 11/15/17
- * Time: 11:12 AM
- */
 
 namespace pantera\rules;
 
@@ -17,7 +11,6 @@ use yii\db\ActiveRecord;
 
 class EventListener
 {
-
     public static function init()
     {
         $rules = Rule::find()
@@ -46,8 +39,6 @@ class EventListener
             } catch (\Exception $exception) {
                 $status = 0;
                 $stackTrace = $exception->getTraceAsString();
-                var_dump($exception);
-                die();
             }
             self::log($action, $model, $status, $stackTrace);
         });
@@ -67,5 +58,4 @@ class EventListener
         }
         $log->save();
     }
-
 }

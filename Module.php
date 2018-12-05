@@ -40,9 +40,16 @@ class Module extends \yii\base\Module
 
     public function getMenuItems()
     {
-        return [['label' => 'Rules', 'url' => '#', 'icon' => 'cogs', 'items' =>[
-            ['label' => 'Rules', 'url' => ['/rules/rules']],
-            ['label' => 'Rules actions log', 'url' => ['/rules/rules-actions-log']],
-        ]]];
+        return [
+            [
+                'label' => 'Rules',
+                'url' => '#',
+                'icon' => 'cogs',
+                'items' => [
+                    ['label' => 'Rules', 'url' => ['/rules/rules']],
+                    ['label' => 'Rules actions log', 'url' => ['/rules/rules-actions-log']],
+                ]
+            ]
+        ];
     }
 }

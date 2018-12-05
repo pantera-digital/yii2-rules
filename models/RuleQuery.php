@@ -2,6 +2,12 @@
 
 namespace pantera\rules\models;
 
+/**
+ * Class RuleQuery
+ * @package pantera\rules\models
+ *
+ * @see Rule
+ */
 class RuleQuery extends \yii\db\ActiveQuery
 {
     /**

@@ -2,7 +2,6 @@
 
 namespace pantera\rules\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -57,7 +56,7 @@ class RuleSearch extends Rule
             'status' => $this->status,
         ]);
 
-        if($this->created_at) {
+        if ($this->created_at) {
             $dates = explode(' - ', $this->created_at);
             $start = date('Y-m-d 00:00:00', strtotime($dates[0]));
             $stop = date('Y-m-d 23:59:59', strtotime($dates[1]));
@@ -68,7 +67,7 @@ class RuleSearch extends Rule
             ]);
         }
 
-        if($this->updated_at) {
+        if ($this->updated_at) {
             $dates = explode(' - ', $this->updated_at);
             $start = date('Y-m-d 00:00:00', strtotime($dates[0]));
             $stop = date('Y-m-d 23:59:59', strtotime($dates[1]));

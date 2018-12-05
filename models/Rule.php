@@ -65,7 +65,8 @@ class Rule extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function find(){
+    public static function find()
+    {
         return new RuleQuery(get_called_class());
     }
 
@@ -74,6 +75,6 @@ class Rule extends \yii\db\ActiveRecord
      */
     public function getActions()
     {
-        return $this->hasMany(RuleAction::className(), ['rule_id' => 'id']);
+        return $this->hasMany(RuleAction::class, ['rule_id' => 'id']);
     }
 }

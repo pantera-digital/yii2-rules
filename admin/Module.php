@@ -2,7 +2,6 @@
 
 namespace pantera\rules\admin;
 
-use pantera\rules\admin\Assets;
 use Yii;
 
 class Module extends \pantera\rules\Module
