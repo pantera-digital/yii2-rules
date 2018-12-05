@@ -46,6 +46,8 @@ class EventListener
             } catch (\Exception $exception) {
                 $status = 0;
                 $stackTrace = $exception->getTraceAsString();
+                var_dump($exception);
+                die();
             }
             self::log($action, $model, $status, $stackTrace);
         });
