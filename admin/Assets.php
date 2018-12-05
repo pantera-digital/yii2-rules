@@ -9,17 +9,17 @@ use yii\web\AssetBundle;
  */
 class Assets extends AssetBundle
 {
-    public $sourcePath = '@vendor/pantera-digital/yii2-rules/admin/assets';
+    public $sourcePath = __DIR__ . '/assets';
     public $css = [
         'css/style.css',
     ];
     public $js = [
-        'js/ace/ace.js',
         'js/script.js',
     ];
 
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        AceAsset::class,
     ];
 }
